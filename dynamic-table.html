@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Nicholas Mena - Dynamic Table</h1>
+            <ul>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="map-chart.html">Map & Chart</a></li>
+                <li><a href="dynamic-table.html">Dynamic Table</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Dynamic Table</h2>
+            <div class="table-controls">
+                <input type="text" id="search" placeholder="Search..." class="search-bar">
+                <button id="add-entry-btn" class="add-btn">Add New Entry</button>
+            </div>
+            <table id="data-table">
+                <thead>
+                    <tr>
+                        <th data-column="id" data-order="asc">ID</th>
+                        <th data-column="name" data-order="asc">Name</th>
+                        <th data-column="email" data-order="asc">Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+        <div id="modal" class="modal hidden">
+            <div class="modal-content">
+                <h3 id="modal-title">Add Entry</h3>
+                <form id="modal-form">
+                    <input type="text" id="modal-name" placeholder="Name" required>
+                    <input type="email" id="modal-email" placeholder="Email" required>
+                    <button type="submit">Save</button>
+                </form>
+                <button id="close-modal" class="close-modal">Cancel</button>
+            </div>
+        </div>
+    </main>
+    <footer>&copy; 2024 Nicholas Mena</footer>
+
+    <script src="dynamic-table.js"></script>
+</body>
+</html>

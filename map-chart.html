@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map & Chart</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="map-chart.js"></script>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Nicholas Mena - Map & Chart</h1>
+            <ul>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="map-chart.html">Map & Chart</a></li>
+                <li><a href="dynamic-table.html">Dynamic Table</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>OpenStreetMap Integration</h2>
+            <div id="map" style="height: 400px;"></div>
+        </section>
+        <section>
+            <h2>Chart.js Example</h2>
+            <canvas id="myChart"></canvas>
+        </section>
+    </main>
+    <footer>&copy; 2024 Nicholas Mena</footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const map = L.map('map').setView([40.7128, -74.0060], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const ctx = document.getElementById('myChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                    datasets: [{
+                        label: 'Monthly Data',
+                        data: [10, 20, 15, 30, 25, 40],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: { responsive: true }
+            });
+        });
+    </script>
+</body>
+</html>
